@@ -11,10 +11,6 @@
   "main": "dist/oidc-client-ts.cjs",
   "module": "dist/oidc-client-ts.mjs",
   "types": "dist/oidc-client-ts.d.ts",
-  "workspaces": [
-    "samples/*",
-    "website"
-  ],
   "files": [
     "dist"
   ],

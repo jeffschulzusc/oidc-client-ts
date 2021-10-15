@@ -1,15 +1,16 @@
-import { User, UserManager, UserManagerSettings } from 'oidc-client';
-import { environment } from 'src/environments/environment';
-
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
+import { Log, User, UserManager } from "oidc-client-ts";
+import { environment } from "src/environments/environment";
 
 export { User };
 
+Log.level = Log.DEBUG;
+Log.logger = console;
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class AuthService {
-
   userManager: UserManager;
 
   constructor() {
@@ -19,8 +20,8 @@ export class AuthService {
       redirect_uri: `${environment.clientRoot}assets/signin-callback.html`,
       silent_redirect_uri: `${environment.clientRoot}assets/silent-callback.html`,
       post_logout_redirect_uri: `${environment.clientRoot}`,
-      response_type: 'code',
-      scope: environment.clientScope
+      response_type: "code",
+      scope: environment.clientScope,
     };
     this.userManager = new UserManager(settings);
   }
