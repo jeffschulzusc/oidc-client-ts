@@ -1,0 +1,7 @@
+<script src="http://localhost:4200/oidc-client-ts.js"></script>
+<script>
+    var usermanager = new oidc.UserManager({ response_mode: 'query' });
+    usermanager?.signinRedirectCallback()
+        .then(u => window.location = "/")
+        .catch(e => window.location = "/");
+</script>

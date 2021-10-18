@@ -1,0 +1,19 @@
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/oidc-client/1.7.0/oidc-client.js"></script> -->
+<script src="http://localhost:4200/oidc-client-ts.js"></script>
+<!-- <script src="http://localhost:4200/oidc-client-ts/min.js"></script> -->
+<script>
+  // var mgr = new Oidc.UserManager({ response_mode: 'query' }); // https://cdnjs.cloudflare.com/ajax/libs/oidc-client/1.7.0/oidc-client.js
+  var mgr = new oidc.UserManager({ response_mode: 'query' }); // http://localhost:4200/oidc-client-ts.js
+  mgr.signinSilentCallback().catch(error => {
+    console.error(error);
+  });
+  mgr = undefined;
+</script>
+<!-- <script>
+  data = {
+    type: 'silent-callback',
+    search: location.search,
+    url: location.href
+  };
+  window.parent.postMessage(data, location.origin);
+</script> -->

@@ -1,0 +1,8 @@
+<script src="http://localhost:4200/oidc-client-ts.js"></script>
+<script>
+  var usermanager = new oidc.UserManager({ response_mode: 'query' });
+  usermanager?.signinSilentCallback()
+    .then(u => console.log('SILENT-CALLBACK: ' + u))
+    .catch(e => console.log('SILENT-CALLBACK: ' + e.message));
+  usermanager = null;
+</script>
