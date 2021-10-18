@@ -59,6 +59,7 @@ export class IFrameWindow implements IWindow {
             );
             this._frame.src = params.url;
             Log.debug("IFrameWindow.navigate: APPEND AFTER SET SRC ");
+            Log.debug(this._frame.src);
             window.document.body.appendChild(this._frame);
         }
 

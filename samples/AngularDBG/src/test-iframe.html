@@ -1,0 +1,21 @@
+<html>
+<script>
+    handle = undefined;
+    function _toggle() {
+        if (handle) {
+            window.document.body.removeChild(handle);
+            handle = undefined;
+        } else {
+            handle = window.document.createElement('iframe');
+            handle.src = "https://demo.identityserver.io/connect/authorize?client_id=interactive.public&redirect_uri=http%3A%2F%2Flocalhost%3A4200%2Fassets%2Fsilent-callback.html&response_type=code&scope=openid%20profile%20email%20api&state=5b3780a545fc43b7ab4b8f476c2581cd&code_challenge=lOOiSTTldd1GceIhwAso9hCIX8YZsrJYrP-7mHWHOnE&code_challenge_method=S256&prompt=none&response_mode=query";
+            window.document.body.appendChild(handle);
+        }
+    }
+</script>
+
+<body>
+    <div>THIS IS TEST-IFRAME PARENT &nbsp;&nbsp;&nbsp; <button onclick="_toggle()">toggle</button></div>
+    <br>
+</body>
+
+</html>
