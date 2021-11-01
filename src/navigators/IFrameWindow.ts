@@ -36,8 +36,6 @@ export class IFrameWindow implements IWindow {
         this._frame.style.top = "0";
         this._frame.width = "0";
         this._frame.height = "0";
-
-        window.document.body.appendChild(this._frame);
     }
 
     public async navigate(params: NavigateParams): Promise<NavigateResponse> {
@@ -51,6 +49,8 @@ export class IFrameWindow implements IWindow {
             Log.debug("IFrameWindow.navigate: Using timeout of:", this._timeoutInSeconds);
             this._timer = window.setTimeout(this._timeout, this._timeoutInSeconds * 1000);
             this._frame.src = params.url;
+            Log.debug("IFrameWindow.navigate: appendChild AFTER set iframe src");
+            window.document.body.appendChild(this._frame);
         }
 
         return await this._promise;
